@@ -1,0 +1,130 @@
+body {
+    background: #3206FF;
+    background: linear-gradient(45deg, #3206FF, #F9839B);
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.slider_slides {
+    width: 100%;
+    padding-top: 66%;
+}
+
+.slider_slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.slider_slide.active {
+    opacity: 1;
+}
+
+.slider_slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.slider__nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70px;
+    width: 70px;
+    background-color: #333;
+    opacity: .8;
+    cursor: pointer;
+}
+
+#nav-button--prev {
+    left: 0;
+}
+
+#nav-button--next {
+    right: 0;
+}
+
+#nav-button--prev::before,
+#nav-button--next::before {
+    content: "<";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 24px;
+}
+
+#nav-button--next::before {
+    content: ">";
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+}
+
+#nav-button--prev::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+}
+
+#nav-button--next::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#nav-button--prev::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.slider_nav {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.slider__navlink {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: #333;
+    opacity: .8;
+    margin: 0 8px;
+}
+
+.slider__navlink.active {
+    background-color: #fff;
+    border: 1px solid #333;
+}
+
+@media screen and (max-width: 640px) {
+    .slider__nav-button {
+        height: 40px;
+        width: 40px;
+    }
+}
